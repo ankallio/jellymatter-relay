@@ -2,6 +2,10 @@
 
 Updates Mattermost user account's custom status to show "Currently playing" information from Jellyfin.
 
+## Install service
+
+Build a WAR file with `mvn install`. It can be run directly with `java -jar target/jellymatter.war` or it can be deployed to a Tomcat 9 service.
+
 ## Set up Mattermost
 
 Create a Personal Access Token: Account Settings / Security / Personal Access Tokens.
