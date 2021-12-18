@@ -2,6 +2,8 @@
 
 Updates Mattermost user account's custom status to show "Currently playing" information from Jellyfin.
 
+Jellyfin's Webhook plugin can be used to send information about playback, but it only supports POST calls. Mattermost API expects PUT and DELETE calls to update the custom status. This service translates webhooks to API calls.
+
 ## Install service
 
 Build a WAR file with `mvn install`. It can be run directly with `java -jar target/jellymatter.war` or it can be deployed to a Tomcat 9 service.
