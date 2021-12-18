@@ -32,9 +32,12 @@ public class RelayEndpoints {
 	
 	@PostMapping("/customstatus")
 	public void receiveJellyfinWebhook(@RequestBody JellyfinWebhook webhook) {
+		
 		String mattermostAccessToken = webhook.getAccessToken();
 		String emoji = webhook.getEmoji();
 		String text = webhook.getText();
+
+		logger.debug("Received webhook. Text={}", text);
 		
 		Duration runtime = Optional.ofNullable(webhook.getRunTimeTicks()).map(l -> l / 100L).map(Duration::ofNanos).orElse(null);
 		Duration position = Optional.ofNullable(webhook.getPlaybackPositionTicks()).map(l -> l / 100L).map(Duration::ofNanos).orElse(Duration.ZERO);
